@@ -8,12 +8,17 @@ import {
 } from "@mui/material";
 import { currencyFormat } from "../../app/util/util";
 import { useAppSelector } from "../../app/store/configureStore";
+import { BasketItem } from "../../app/models/basket";
 
-export default function BasketSummary() {
+interface Props {
+  basketItems?: BasketItem[];
+}
+
+export default function BasketSummary({ basketItems }: Props) {
   const { basket } = useAppSelector((state) => state.basket);
+  const itemsList = basketItems ?? basket?.items;
   const subtotal =
-    basket?.items.reduce((sum, item) => sum + item.quantity * item.price, 0) ??
-    0;
+    itemsList?.reduce((sum, item) => sum + item.quantity * item.price, 0) ?? 0;
   const deliveryFee = subtotal > 10000 ? 0 : 500;
 
   return (
