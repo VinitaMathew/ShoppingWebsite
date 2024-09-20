@@ -10,6 +10,8 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./app/router/Routes.tsx";
 import { Provider } from "react-redux";
 import { store } from "./app/store/configureStore.ts";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

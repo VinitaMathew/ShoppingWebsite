@@ -26,7 +26,7 @@ export default function ProductDetails() {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
   const product = useAppSelector((state) =>
-    productSelectors.selectById(state, id)
+    productSelectors.selectById(state, parseInt(id!))
   );
   const { status: productStatus } = useAppSelector((state) => state.catalog);
   const [quantity, setQuantity] = useState(0);

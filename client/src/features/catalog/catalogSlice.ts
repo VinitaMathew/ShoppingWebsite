@@ -5,8 +5,8 @@ import {
 } from "@reduxjs/toolkit";
 import { Product, ProductsParams } from "../../app/models/products";
 import agent from "../../app/api/agent";
-import { RootState } from "@reduxjs/toolkit/query";
 import { MetaData } from "../../app/models/pagination";
+import { RootState } from "../../app/store/configureStore";
 
 interface CatalogState {
   productsLoaded: boolean;
